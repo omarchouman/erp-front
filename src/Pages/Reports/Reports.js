@@ -1,4 +1,4 @@
-import MotionHoc from "./MotionHoc";
+import MotionHoc from "../MotionHoc";
 
 const ReportsComponent = () => {
   return <h1>Reports</h1>;

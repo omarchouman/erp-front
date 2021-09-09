@@ -1,12 +1,12 @@
 import { Route, Switch, useLocation, Redirect } from "react-router";
 import Login from "./components/Login/login";
 import Sidebar from "./components/Sidebar/Sidebar";
-import Admins from "./Pages/Admins";
-import Employees from "./Pages/Employees";
-import Teams from "./Pages/Teams";
-import Projects from "./Pages/Projects";
-import Kpis from "./Pages/Kpis";
-import Reports from "./Pages/Reports";
+import Admins from "./Pages/Admins/Admins";
+import Employees from "./Pages/Employees/Employees";
+import Teams from "./Pages/Teams/Teams";
+import Projects from "./Pages/Projects/Projects";
+import Kpis from "./Pages/Kpis/Kpis";
+import Reports from "./Pages/Reports/Reports";
 import styled from "styled-components";
 import { AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";

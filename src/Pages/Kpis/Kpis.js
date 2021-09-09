@@ -1,4 +1,4 @@
-import MotionHoc from "./MotionHoc";
+import MotionHoc from "../MotionHoc";
 
 function KpisComponent() {
     return (
