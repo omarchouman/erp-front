@@ -1,9 +1,10 @@
-import MotionHoc from "../MotionHoc";
+import React from 'react';
+import Admin from "../../components/Admins/Admins";
 
-const AdminsComponent = () => {
-  return <h1>Admins</h1>;
-};
+function Admins() {
+    return (
+        <Admin />
+    )
+}
 
-const Admins = MotionHoc(AdminsComponent);
-
-export default Admins;
+export default Admins

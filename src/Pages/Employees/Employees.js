@@ -1,9 +1,10 @@
-import MotionHoc from "../MotionHoc";
+import React from 'react';
+import Employee from "../../components/Employees/Employees";
 
-const EmployeesComponent = () => {
-  return <h1>Employees</h1>;
-};
+function Employees() {
+    return (
+        <Employee />
+    )
+}
 
-const Employees = MotionHoc(EmployeesComponent);
-
-export default Employees;
+export default Employees

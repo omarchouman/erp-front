@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Reports() {
+function Roles() {
     return (
         <div className='reports'>
             <h1>Reports</h1>
@@ -8,4 +8,4 @@ function Reports() {
     )
 }
 
-export default Reports
+export default Roles

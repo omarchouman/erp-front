@@ -1,11 +1,11 @@
-import MotionHoc from "../MotionHoc";
+import React from 'react'
 
-function KpisComponent() {
+function Kpis() {
     return (
-        <h1>KPIs</h1>
+        <div className='kpis'>
+            <h1>Kpis</h1>
+        </div>
     )
 }
 
-const Kpis = MotionHoc(KpisComponent);
-
-export default Kpis;
+export default Kpis
