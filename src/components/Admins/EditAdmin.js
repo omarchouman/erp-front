@@ -11,7 +11,7 @@ function EditAdmin() {
       password: "",
     });
   
-    const { name, email, password } = admin;
+    const { name, email, password } = admin || {};
     const onInputChange = e => {
       setAdmin({ ...admin, [e.target.name]: e.target.value });
     };
@@ -33,7 +33,7 @@ function EditAdmin() {
     return (
       <div className="container">
         <div className="w-75 mx-auto shadow p-5">
-          <h2 className="text-center mb-4">Edit A User</h2>
+          <h2 className="text-center mb-4">Edit An Admin</h2>
           <form onSubmit={e => onSubmit(e)}>
             <div className="form-group">
               <input
@@ -65,7 +65,7 @@ function EditAdmin() {
                 onChange={e => onInputChange(e)}
               />
             </div>
-            <button className="btn btn-warning btn-block">Update User</button>
+            <button className="btn btn-warning btn-block">Update Admin</button>
           </form>
         </div>
       </div>

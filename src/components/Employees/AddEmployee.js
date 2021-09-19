@@ -13,7 +13,7 @@ function AddEmployee() {
         image: "",
     });
 
-    const { fName, lName, email, phone, image } = employee;
+    const { fName, lName, email, phone, image, teamid, roleid } = employee;
     const onInputChange = e => {
         setEmployee({ ...employee, [e.target.name]: e.target.value });
     };
@@ -27,7 +27,7 @@ function AddEmployee() {
         <div className="container">
         <div className="w-75 mx-auto shadow p-5">
             <h2 className="text-center mb-4">Add An Employee</h2>
-            <form onSubmit={e => onSubmit(e)}>
+            <form  onSubmit={e => onSubmit(e)} enctype="multipart/form-data">
             <div className="form-group">
                 <input
                 type="text"

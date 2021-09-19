@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { getAllByTitle } from "@testing-library/dom";
 
-function Roles() {
+function Role() {
     const [roles, setRoles] = useState([]);
 
     useEffect(() => {
@@ -26,13 +26,14 @@ function Roles() {
     return (
       <div className="container">
         <div className="py-4">
-          <h1>Roles Table</h1>
-          <Link className="btn btn-outline-primary" to="/roles/add">Add Role</Link>
+          <h1>Role Employees Table</h1>
+          <Link className="btn btn-outline-primary" to="/roles">Back To Roles</Link>
           <table class="table border shadow">
             <thead class="thead-dark">
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Name</th>
+                <th scope="col">Employees</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -41,10 +42,12 @@ function Roles() {
                 <tr>
                   <th scope="row">{index + 1}</th>
                   <td>{role.name}</td>
+                  <td>{role.employees.map((val) => (
+                      <tr>
+                        <td>{val.first_name}</td>
+                      </tr>  
+                  ))}</td>
                   <td>
-                    <Link class="btn btn-primary mr-2" to={'/role'}>
-                      View
-                    </Link>
                     <Link
                       class="btn btn-outline-primary mr-2"
                       to={`/role/edit/${role.id}`}
@@ -67,4 +70,4 @@ function Roles() {
     );
 }
 
-export default Roles
+export default Role

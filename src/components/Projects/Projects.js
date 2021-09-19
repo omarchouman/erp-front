@@ -1,33 +1,30 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { getAllByTitle } from "@testing-library/dom";
 
-function Roles() {
-    const [roles, setRoles] = useState([]);
+function Projects() {
+    const [projects, setProjects] = useState([]);
 
     useEffect(() => {
-      loadRoles();
+      loadProjects();
     }, []);
   
-    const loadRoles = async () => {
-      const result = await axios.get("http://localhost:8000/api/roles");
-      setRoles(Array.from(result.data.data));
+    const loadProjects = async () => {
+      const result = await axios.get("http://localhost:8000/api/projects");
+      setProjects(Array.from(result.data.data));
       console.log(result.data.data);
     };
-
-   
   
-    const deleteRole = async id => {
-      await axios.delete(`http://localhost:8000/api/roles/${id}`);
-      loadRoles();
+    const deleteProject = async id => {
+      await axios.delete(`http://localhost:8000/api/projects/${id}`);
+      loadProjects();
     };
   
     return (
       <div className="container">
         <div className="py-4">
-          <h1>Roles Table</h1>
-          <Link className="btn btn-outline-primary" to="/roles/add">Add Role</Link>
+          <h1>Projects Table</h1>
+          <Link className="btn btn-outline-primary" to="/project/add">Add Project</Link>
           <table class="table border shadow">
             <thead class="thead-dark">
               <tr>
@@ -37,23 +34,23 @@ function Roles() {
               </tr>
             </thead>
             <tbody>
-              {roles.map((role, index) => (
+              {projects.map((project, index) => (
                 <tr>
                   <th scope="row">{index + 1}</th>
-                  <td>{role.name}</td>
+                  <td>{project.name}</td>
                   <td>
-                    <Link class="btn btn-primary mr-2" to={'/role'}>
+                    <Link class="btn btn-primary mr-2" to={"/project"}>
                       View
                     </Link>
                     <Link
                       class="btn btn-outline-primary mr-2"
-                      to={`/role/edit/${role.id}`}
+                      to={`/project/edit/${project.id}`}
                     >
                       Edit
                     </Link>
                     <Link
                       class="btn btn-danger"
-                      onClick={() => deleteRole(role.id)}
+                      onClick={() => deleteProject(project.id)}
                     >
                       Delete
                     </Link>
@@ -67,4 +64,4 @@ function Roles() {
     );
 }
 
-export default Roles
+export default Projects

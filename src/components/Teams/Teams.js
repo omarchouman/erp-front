@@ -24,7 +24,7 @@ function Teams() {
       <div className="container">
         <div className="py-4">
           <h1>Teams Table</h1>
-          <Link className="btn btn-outline-primary" to="/teams/add">Add Team</Link>
+          <Link className="btn btn-outline-primary" to="/team/add">Add Team</Link>
           <table class="table border shadow">
             <thead class="thead-dark">
               <tr>
@@ -44,7 +44,7 @@ function Teams() {
                     </Link>
                     <Link
                       class="btn btn-outline-primary mr-2"
-                      to={`/teams/edit/${team.id}`}
+                      to={`/team/edit/${team.id}`}
                     >
                       Edit
                     </Link>

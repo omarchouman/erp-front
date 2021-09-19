@@ -24,7 +24,7 @@ function Employees() {
       <div className="container">
         <div className="py-4">
           <h1>Employees Table</h1>
-          <Link className="btn btn-outline-primary" to="/employees/add">Add Employee</Link>
+          <Link className="btn btn-outline-primary" to="/employee/add">Add Employee</Link>
           <table class="table border shadow">
             <thead class="thead-dark">
               <tr>
@@ -33,8 +33,7 @@ function Employees() {
                 <th scope="col">Last Name</th>
                 <th scope="col">Email</th>
                 <th scope="col">Phone</th>
-                <th scope="col">Team</th>
-                <th scope="col">Role</th>
+                <th scope="col">Avatar</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -46,15 +45,18 @@ function Employees() {
                   <td>{employee.last_name}</td>
                   <td>{employee.email}</td>
                   <td>{employee.phone}</td>
-                  <td>{employee.team.name}</td>
-                  <td>{employee.role.name}</td>
                   <td>
-                    <Link class="btn btn-primary mr-2" to={`/employees/${employee.id}`}>
+                  <img
+                      style={{ width: 30, height: 30 , borderRadius:'50%', borderColor:'#1dc4e7'}}
+                      src={"http://localhost:8000/" + employee.file_path} />
+                  </td>
+                  <td>
+                    <Link class="btn btn-primary mr-2" to={`/employee/${employee.id}`}>
                       View
                     </Link>
                     <Link
                       class="btn btn-outline-primary mr-2"
-                      to={`/employees/edit/${employee.id}`}
+                      to={`/employee/edit/${employee.id}`}
                     >
                       Edit
                     </Link>

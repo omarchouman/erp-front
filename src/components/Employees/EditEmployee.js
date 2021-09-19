@@ -13,7 +13,7 @@ function EditEmployee() {
         image: "",
     });
   
-    const { fName, lName, email, phone, image } = employee;
+    const { fName, lName, email, phone, image } = employee || {};
     const onInputChange = e => {
       setEmployee({ ...employee, [e.target.name]: e.target.value });
     };

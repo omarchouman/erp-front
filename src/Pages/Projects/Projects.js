@@ -1,10 +1,9 @@
-import React from 'react'
+import React from 'react';
+import Project from "../../components/Projects/Projects";
 
 function Projects() {
     return (
-        <div className='projects'>
-            <h1>Projects</h1>
-        </div>
+        <Project />
     )
 }
 
