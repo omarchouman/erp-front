@@ -1,58 +1,61 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { getAllByTitle } from "@testing-library/dom";
 
-function Admins() {
-    const [admins, setAdmins] = useState([]);
+function Roles() {
+    const [roles, setRoles] = useState([]);
 
     useEffect(() => {
-      loadAdmins();
+      loadRoles();
     }, []);
   
-    const loadAdmins = async () => {
-      const result = await axios.get("http://localhost:8000/api/admins");
-      setAdmins(Array.from(result.data.data));
+    const loadRoles = async () => {
+      const result = await axios.get("http://localhost:8000/api/roles");
+      setRoles(Array.from(result.data.data));
       console.log(result.data.data);
     };
+
+   
   
-    const deleteAdmin = async id => {
+    const deleteRole = async id => {
       await axios.delete(`http://localhost:8000/api/admins/${id}`);
-      loadAdmins();
+      loadRoles();
     };
   
     return (
       <div className="container">
         <div className="py-4">
-          <h1>Admins Table</h1>
-          <Link className="btn btn-outline-primary" to="/admins/add">Add Admin</Link>
+          <h1>Roles Table</h1>
+          <Link className="btn btn-outline-primary" to="/roles/add">Add Role</Link>
           <table class="table border shadow">
             <thead class="thead-dark">
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Name</th>
-                <th scope="col">Email</th>
+                <th scope="col">Employees</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody>
-              {admins.map((admin, index) => (
+              {roles.map((role, index) => (
                 <tr>
                   <th scope="row">{index + 1}</th>
-                  <td>{admin.name}</td>
-                  <td>{admin.email}</td>
+                  <td>{role.name}</td>
+                  <td>{role.employees[0].first_name}</td>
                   <td>
-                    <Link class="btn btn-primary mr-2" to={`/admins/${admin.id}`}>
+                    <Link class="btn btn-primary mr-2" to={`/roles/${role.id}`}>
                       View
                     </Link>
                     <Link
                       class="btn btn-outline-primary mr-2"
-                      to={`/admins/edit/${admin.id}`}
+                      to={`/roles/edit/${role.id}`}
                     >
                       Edit
                     </Link>
                     <Link
                       class="btn btn-danger"
-                      onClick={() => deleteAdmin(admin.id)}
+                      onClick={() => deleteRole(role.id)}
                     >
                       Delete
                     </Link>
@@ -66,4 +69,4 @@ function Admins() {
     );
 }
 
-export default Admins
+export default Roles

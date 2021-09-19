@@ -1,10 +1,9 @@
-import React from 'react'
+import React from 'react';
+import Role from "../../components/Roles/Roles";
 
 function Roles() {
     return (
-        <div className='reports'>
-            <h1>Reports</h1>
-        </div>
+        <Role />
     )
 }
 

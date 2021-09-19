@@ -5,30 +5,30 @@ import { useHistory, useParams } from "react-router-dom";
 function EditAdmin() {
     let history = useHistory();
     const { id } = useParams();
-    const [user, setUser] = useState({
+    const [admin, setAdmin] = useState({
       name: "",
       email: "",
       password: "",
     });
   
-    const { name, email, password } = user;
+    const { name, email, password } = admin;
     const onInputChange = e => {
-      setUser({ ...user, [e.target.name]: e.target.value });
+      setAdmin({ ...admin, [e.target.name]: e.target.value });
     };
   
     useEffect(() => {
-      loadUser();
+      loadAdmin();
     }, []);
   
     const onSubmit = async e => {
       e.preventDefault();
-      await axios.put(`http://localhost:8000/api/admins/${id}`, user);
-      history.push("/");
+      await axios.put(`http://localhost:8000/api/admins/${id}`, admin);
+      history.push("/admins");
     };
   
-    const loadUser = async () => {
+    const loadAdmin = async () => {
       const result = await axios.get(`http://localhost:8000/api/admins/${id}`);
-      setUser(result.data.data);
+      setAdmin(result.data.data);
     };
     return (
       <div className="container">
