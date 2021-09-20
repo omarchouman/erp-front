@@ -1,10 +1,9 @@
-import React from 'react'
+import React from 'react';
+import Kpi from "../../components/Kpis/Kpis";
 
 function Kpis() {
     return (
-        <div className='kpis'>
-            <h1>Kpis</h1>
-        </div>
+        <Kpi />
     )
 }
 

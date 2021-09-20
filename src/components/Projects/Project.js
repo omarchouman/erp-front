@@ -30,6 +30,7 @@ function Project() {
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Name</th>
+                <th scope="col">Teams</th>
                 <th>Action</th>
               </tr>
             </thead>

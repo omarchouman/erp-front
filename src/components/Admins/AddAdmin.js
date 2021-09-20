@@ -18,7 +18,7 @@ function AddAdmin() {
   const onSubmit = async e => {
     e.preventDefault();
     await axios.post("http://localhost:8000/api/admins", user);
-    history.push("/");
+    history.push("/admins");
   };
   return (
     <div className="container">

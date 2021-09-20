@@ -41,9 +41,9 @@ function Admins() {
                   <td>{admin.name}</td>
                   <td>{admin.email}</td>
                   <td>
-                    <Link class="btn btn-primary mr-2" to={`/admins/${admin.id}`}>
+                    {/* <Link class="btn btn-primary mr-2" to={`/admins/${admin.id}`}>
                       View
-                    </Link>
+                    </Link> */}
                     <Link
                       class="btn btn-outline-primary mr-2"
                       to={`/admins/edit/${admin.id}`}

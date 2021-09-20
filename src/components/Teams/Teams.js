@@ -39,9 +39,9 @@ function Teams() {
                   <th scope="row">{index + 1}</th>
                   <td>{team.name}</td>
                   <td>
-                    <Link class="btn btn-primary mr-2" to={`/teams/${team.id}`}>
+                    {/* <Link class="btn btn-primary mr-2" to={`/teams/${team.id}`}>
                       View
-                    </Link>
+                    </Link> */}
                     <Link
                       class="btn btn-outline-primary mr-2"
                       to={`/team/edit/${team.id}`}
