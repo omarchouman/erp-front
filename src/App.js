@@ -25,6 +25,7 @@ import Projects from "./Pages/Projects/Projects";
 import AddProject from './components/Projects/AddProject';
 import EditProject from "./components/Projects/EditProject";
 import Project from "./components/Projects/Project";
+import AssignProject from "./components/Projects/AssignProjects";
 
 /************* Roles *************/
 import Roles from "./Pages/Roles/Roles";
@@ -69,6 +70,7 @@ function App() {
           <Route exact path="/project/add" component={AddProject} />
           <Route exact path="/project/edit/:id" component={EditProject} />
           <Route exact path="/project" component={Project} />
+          <Route exact path="/assignp" component={AssignProject} />
 
           {/* Roles */}
           <Route path='/roles' component={Roles} />

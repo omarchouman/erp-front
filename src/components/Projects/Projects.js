@@ -25,6 +25,7 @@ function Projects() {
         <div className="py-4">
           <h1>Projects Table</h1>
           <Link className="btn btn-outline-primary" to="/project/add">Add Project</Link>
+          <Link className="btn btn-outline-primary" to="/assignp">Assign Projects to Teams</Link>
           <table class="table border shadow">
             <thead class="thead-dark">
               <tr>

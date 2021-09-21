@@ -27,7 +27,7 @@ function Roles() {
       <div className="container">
         <div className="py-4">
           <h1>Roles Table</h1>
-          <Link className="btn btn-outline-primary" to="/roles/add">Add Role</Link>
+          <Link className="btn btn-outline-primary" to="/role/add">Add Role</Link>
           <table class="table border shadow">
             <thead class="thead-dark">
               <tr>

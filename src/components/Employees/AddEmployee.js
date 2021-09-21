@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from 'axios'
 import { useHistory } from "react-router-dom";
 
@@ -11,11 +11,41 @@ function AddEmployee() {
         email: "", 
         phone: "",  
         image: "",
+        team_id: "",
+        role_id: "",
     });
 
-    const { fName, lName, email, phone, image, teamid, roleid } = employee;
+    const [image, setImage] = useState("")
+    const [teamdata, setTeamData] = useState([]);
+    const [roledata, setRoleData] = useState([]);
+
+    useEffect(() => {
+        loadTeamData();
+        loadRoleData();
+    }, []);
+
+    const { fName, lName, email, phone, team_id, role_id } = employee;
+
+    // Getting all teams for dropdown
+    const loadTeamData = async () => {
+        const res = await axios.get("http://localhost:8000/api/allteams");
+        setTeamData(res.data);
+        console.log(res.data);
+    }
+
+    // Getting all roles for dropdown
+    const loadRoleData = async () => {
+        const res = await axios.get("http://localhost:8000/api/allroles");
+        setRoleData(res.data);
+        console.log(res.data);
+    }
+
     const onInputChange = e => {
         setEmployee({ ...employee, [e.target.name]: e.target.value });
+    };
+
+    const onImageChange = e => {
+        setImage(e.target.files[0]);
     };
 
     const onSubmit = async e => {
@@ -74,10 +104,32 @@ function AddEmployee() {
                 className="form-control form-control-lg"
                 placeholder="Upload Image"
                 name="image"
-                value={image}
-                onChange={e => onInputChange(e)}
+                onChange={e => onImageChange(e)}
                 />
             </div>
+            <br/><br/>
+            <select
+                className="dropdown"
+                name="team"
+                onChange={(e) => onInputChange(e)}
+            >
+                <option value={team_id}>Select Team</option>
+                {teamdata && teamdata.map((vall) => (
+                    <option value={vall.id}>{vall.name}</option>
+                ))}
+            </select>
+            <br/><br/>
+            <select
+                className="dropdown"
+                name="role"
+                onChange={(e) => onInputChange(e)}
+            >
+                <option value={role_id}>Select Role</option>
+                {roledata && roledata.map((vall) => (
+                    <option value={vall.id}>{vall.name}</option>
+                ))}
+            </select>
+            <br/><br/>
             <button className="btn btn-primary btn-block">Add Employee</button>
             </form>
         </div>

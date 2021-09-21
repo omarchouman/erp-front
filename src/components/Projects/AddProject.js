@@ -8,18 +8,18 @@ function AddProject() {
         name: "",   
     });
 
-    const [teamdata, setTeamData] = useState([]);
+    // const [teamdata, setTeamData] = useState([]);
 
 
-    useEffect(() => {
-        loadTeamData();
-      }, []);
+    // useEffect(() => {
+    //     loadTeamData();
+    // }, []);
     
-      const loadTeamData = async () => {
-        const result = await axios.get("http://localhost:8000/api/teams");
-        setTeamData(Array.from(result.data.data));
-        console.log(result.data.data);
-      };
+    //   const loadTeamData = async () => {
+    //     const result = await axios.get("http://localhost:8000/api/allteams");
+    //     setTeamData(Array.from(result.data));
+    //     console.log(result.data);
+    // };
 
     const { name } = project;
     const onInputChange = e => {
@@ -29,7 +29,7 @@ function AddProject() {
     const onSubmit = async e => {
         e.preventDefault();
         await axios.post("http://localhost:8000/api/projects", project);
-        history.push("/");
+        history.push("/projects");
     };
     return (
         <div className="container">
@@ -49,16 +49,16 @@ function AddProject() {
 
             <br/><br/>
 
-            <select
+            {/* <select
                 className="dropdown"
                 name="team"
-                onChange={(e) => setTeamData(e.target.value)}
+                onChange={(e) => onInputChange(e.target.value)}
             >
                 <option value="A">Select Team</option>
                 {teamdata.map((vall) => (
                     <option value={vall.id}>{vall.name}</option>
                 ))}
-            </select>
+            </select> */}
 
 
             <br/><br/>
